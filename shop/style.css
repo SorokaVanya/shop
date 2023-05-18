@@ -1,0 +1,94 @@
+body {
+    background: pink;
+    color: purple;
+    font-size: 20px;
+}
+html,
+body {
+    height: 100%;
+}
+form{
+    font-size: 20pt;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+.group:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+a {
+    text-decoration: none;
+}
+
+.calendar-wrapper {
+    width: 360px;
+    margin: 3em auto;
+    padding: 2em;
+    border: 1px solid #dcdcff;
+    border-radius: 5px;
+    background: #fff;
+}
+
+table {
+    clear: both;
+    width: 100%;
+    border: 1px solid #dcdcff;
+    border-radius: 3px;
+    border-collapse: collapse;
+    color: #444;
+}
+
+td {
+    height: 48px;
+    text-align: center;
+    vertical-align: middle;
+    border-right: 1px solid #dcdcff;
+    border-top: 1px solid #dcdcff;
+    width: 14.28571429%;
+}
+
+td.not-current {
+    color: #c0c0c0;
+}
+
+td.today {
+    font-weight: 700;
+    color: #28283b;
+    font-size: 1.5em;
+}
+
+thead td {
+    border: none;
+    color: #28283b;
+    text-transform: uppercase;
+    font-size: 1.5em;
+}
+button{
+    background: rgb(219, 117, 117);
+    background: rgb(201, 255, 250);
+        color: black;
+        font-size: 15pt;
+}
+
+#timer{
+   font-size: 30pt; 
+}
+#sty{
+    background: rgb(131, 109, 109);
+    color: rgb(0, 0, 0);
+}
+#game{
+    font-size: 20pt;
+}
+#my-button{
+background: rgb(201, 255, 250);
+color: black;
+font-size: 15pt;
+}

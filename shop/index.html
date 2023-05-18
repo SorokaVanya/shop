@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<svg viewBox="0 0 50 50" width="50" height="50">
+    <circle cx="25" cy="25" r="20" fill="red">
+        <animate attributeName="r" from="20" to="22" begin="0s" dur="1.5s" repeatCount="indefinite" />
+        <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 25 25" to="360 25 25"
+            dur="1s" repeatCount="indefinite" />
+    </circle>
+</svg>
+<br>
+    <canvas id="myCanvas" width="400" height="70"></canvas>
+    
+    <script>
+        // Получаем элемент canvas из DOM
+        var canvas = document.getElementById('myCanvas');
+
+        // Получаем контекст отрисовки на canvas
+        var ctx = canvas.getContext('2d');
+
+        // Устанавливаем шрифт и размер шрифта для надписи
+        ctx.font = '40px Arial';
+
+        // Устанавливаем цвет заливки для надписи
+        ctx.fillStyle = 'blue';
+
+        // Рисуем надпись "Мир цветов"
+        ctx.fillText('МИР ЦВЕТОВ', canvas.width / 2 - 120, canvas.height / 2);
+    </script>
+    <h1>ДОБРО ПОЖАЛОВАТЬ! В ЦВЕТОЧНЫЙ МАГАЗИН- "МИР ЦВЕТОВ"</h1>
+<h2>
+    До 15 мая у нас проходят ОГРОМНЫЕ СКИДКИ -70% на тюльпаны, маки и гвоздики в честь Дня Победы. <br>
+</h2>
+<img src="./gv2.jpg" width="300" height="300">
+<h2>Гвоздики</h2>
+<h3>1$ за штукую <br>
+</h3>
+<br>
+<img src="./mak2.jpg" width="300" height="300">
+<h2> Маки<br> </h2>
+<h3>1,5$ за штуку</h3> <br>
+<img src="./ty2.jpg" width="300" height="300"> <br>
+<h2>Тюльпаны</h2>
+<h3>0,75$ за штуку</h3>
+<h2>Можите посчитать тут 🡻(по курсу 36.96)</h2>
+<form>
+        <label for="dollars">Доллары:</label>
+        <input type="number" id="dollars" name="dollars" step="0.01" onchange="convertCurrency()"
+            onkeyup="convertCurrency()">
+        <br>
+        <label for="hryvnias">Гривны:</label>
+        <input type="number" id="hryvnias" name="hryvnias" step="0.01" onchange="convertCurrency()"
+            onkeyup="convertCurrency()">
+        <br><br>
+        <button type="button" onclick="convertCurrency()">Перевести</button>
+        <br><br>
+        <label for="result">Результат:</label>
+        <input type="text" id="result" name="result" readonly>
+    </form>
+    
+    <script>
+        function convertCurrency() {
+            let dollars = document.getElementById("dollars").value;
+            let hryvnias = document.getElementById("hryvnias").value;
+
+            if (dollars !== "") {
+                let result = dollars * 36.96; //доллар в грн
+                document.getElementById("result").value = result.toFixed(2);
+            } else if (hryvnias !== "") {
+                let result = hryvnias / 36.96; // грн в доллар
+                document.getElementById("result").value = result.toFixed(2);
+            } else {
+                document.getElementById("result").value = "";
+            }
+        }
+    </script>
+    <br>
+        <img id="slides" src="./gv1.jpg" width="300" height="300">
+        <button onclick="next()">Next</button>
+        <script>
+            let arr_src = [, './gv1.jpg', './mak1.jpg', './ty1.jpg']
+            let img1 = document.getElementById('slides');
+            let i = 0;
+            function next() {
+                if (i < arr_src.length - 1) {
+                    i++;
+                    img1.setAttribute("src", arr_src[i]);
+                }
+                else {
+i=0
+                }
+            }
+        </script>
+<h1>Календарь на месяц</h1>
+    <div class="calendar-wrapper">
+        <div id="divCal"></div>
+    </div>
+
+    <script id="today">
+    const currentDate = new Date();
+    const currentDayOfWeek = currentDate.getDay();
+
+    if (currentDayOfWeek === 0 || currentDayOfWeek === 6) {
+        document.write("Сегодня - выходной, мы не работаем(");
+    } else {
+        document.write ("Сегодня - будний день,мы работаем!");
+    }
+
+    </script>
+<br>
+<div id="timer"></div>
+
+<br>
+<button onclick="changeStyle()" id="sty"><h2>Изменить стиль</h2></button>
+
+<script>
+    function changeStyle() {
+  const body = document.body;
+  if (body.style.backgroundColor === 'pink') {
+    body.style.backgroundColor = 'grey';
+    body.style.color = 'black';
+  } else if (body.style.backgroundColor === 'grey') {
+    body.style.backgroundColor = 'purple';
+    body.style.color = 'pink';
+  } else if (body.style.backgroundColor === 'purple') {
+    body.style.backgroundColor = 'pink';
+    body.style.color = 'purple';
+  } else {
+    body.style.backgroundColor = 'pink';
+    body.style.color = 'purple';
+  }
+}
+</script>
+<br>
+<br>
+<br>
+    <button id="my-button">Хочешь поиграть?</button>
+
+    <script>
+        document.getElementById("my-button").addEventListener("click", function () {
+           
+             var word = prompt('Введите слово');
+                var answerArray = [];
+                var count = word.length;
+                var attempt = 4;
+
+                for (i = 0; i < word.length; i++) { //создаём массив заполненый __
+                    answerArray[i] = ' _ ';
+                }
+
+
+                while (count > 0 && attempt > 0) {
+                    alert(answerArray.join(' ')); //выводим массив на экран
+
+                    var guess = prompt('Введите букву'); //ввод буквы и её проверка 
+
+                    if (guess === null) {
+                        break;
+                    } else if (guess.length !== 1) {
+                        alert('Нужно ввести хотябы одну букву!');
+                    } else if (guess.length === 1) {
+                        for (i = 0; i < word.length; i++) { //обработка ответа
+                            if (guess.toLowerCase() === word[i] && answerArray[i] == ' _ ') {
+                                answerArray[i] = guess.toLowerCase();
+                                count--;
+
+                            }
+                        }
+                    }
+                }
+
+                if (count == 0) {
+                    alert('Слово было ' + word);
+                }
+                 });
+    </script>
+    
+    <p id="game"> А пока вы ждёте доставу цветов, вы можете поиграть в игру -"угодай слово" <br>
+        1. Вы вводите любое слово. <br>
+        2. Ваш друг пытается отгадать по буквам это слово. <br>
+    </p>
+</body>
+</html>
